@@ -21,7 +21,7 @@ class Pessoa
 
     function calcularIMC()
     {
-        $alturaMetros = $this->altura / 100; // Convertendo altura para metros
+        $alturaMetros = $this->altura / 100; 
         return $this->peso / ($alturaMetros * $alturaMetros);
     }
 
@@ -36,7 +36,7 @@ class Pessoa
         }
 
         $imc = $this->calcularIMC();
-        if ($imc < 18.5 || $imc >= 30) { // Abaixo do peso ou obeso
+        if ($imc < 18.5 || $imc >= 30) {
             return false;
         }
 
@@ -54,7 +54,6 @@ class Pessoa
     }
 }
 
-// Verifica se os dados foram enviados via POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nomes = $_POST["nome"];
     $generos = $_POST["genero"];
@@ -65,7 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $candidatos = array();
 
-    // Itera sobre os dados recebidos e cria objetos Pessoa para cada candidato
     for ($i = 0; $i < count($nomes); $i++) {
         $candidato = new Pessoa(
             $nomes[$i],
